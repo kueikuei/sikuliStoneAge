@@ -1,0 +1,185 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>stoneAge_R33.sikuli</h2> <a href="stoneAge_R33.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># 55隨機pk</span>
+
+<span class="cmt"># ----------------前提設定----------------- # </span>
+<span class="cmt"># 開啟五隻人物、並且都在醫院</span>
+<span class="cmt"># 戰鬥設定好戰寵騎寵</span>
+<span class="cmt"># 設定掉線重連</span>
+<span class="cmt"># ----------------前提設定----------------- # </span>
+
+systemLocation = Location(<span class="dig">748</span>, <span class="dig">614</span>)
+
+pointer = <span class="dig">0</span>
+<span class="cmt"># 視窗切換與設定 by location</span>
+<span class="kw">def</span> switchWindow(pointer):
+    <span class="kw">if</span>(pointer&gt;<span class="dig">4</span>):
+        pointer = <span class="dig">0</span>
+
+    <span class="skw">click</span>(<img src="1526652852632-1.png" />)
+    <span class="skw">wait</span>(<span class="dig">0.1</span>)
+
+    <span class="kw">if</span>(pointer==<span class="dig">0</span>):
+        <span class="skw">type</span>(Key.RIGHT)
+        keyDown(Key.ENTER)
+        keyUp()
+    <span class="kw">elif</span>(pointer==<span class="dig">1</span>):
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        keyDown(Key.ENTER)
+        keyUp()
+    <span class="kw">elif</span>(pointer==<span class="dig">2</span>):
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        keyDown(Key.ENTER)
+        keyUp()
+    <span class="kw">elif</span>(pointer==<span class="dig">3</span>):
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        keyDown(Key.ENTER)
+        keyUp()
+    <span class="kw">elif</span>(pointer==<span class="dig">4</span>):
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        <span class="skw">type</span>(Key.RIGHT)
+        keyDown(Key.ENTER)
+        keyUp()
+
+    <span class="cmt"># 檢測是否還在戰鬥</span>
+    <span class="cmt"># 如果還在戰鬥直接登出省時間</span>
+    <span class="kw">if</span> <span class="kw">not</span> exists(<img src="1526572518625-1.png" />):
+
+        <span class="cmt">#click(systemLocation)</span>
+        <span class="cmt"># 避免不斷等待時間</span>
+        <span class="cmt">#if exists("1526832621719.png"):</span>
+          <span class="cmt">#  click("1526832621719.png")</span>
+
+        mouseMove(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(<img src="1526994564988.png" />)
+        <span class="skw">wait</span>(<span class="dig">0.1</span>)
+        <span class="skw">click</span>(<img src="1526994587978.png" />)
+        <span class="skw">wait</span>(<span class="dig">3.5</span>) <span class="cmt">#5秒保險  </span>
+
+    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-1.png" />):    <span class="cmt">#避免無法登入   </span>
+        keyDown(Key.ESC)
+
+    <span class="cmt"># 代表戰鬥結束        </span>
+    <span class="kw">if</span> exists(<img src="1526572518625-1.png" />):
+        battleSetting()
+        pointer = pointer + <span class="dig">1</span>
+        switchWindow(pointer)
+
+<span class="kw">def</span> battleSetting():
+    <span class="cmt"># 脫離團隊</span>
+    <span class="skw">click</span>(<img src="1526832676608.png" />)
+    <span class="skw">wait</span>(<span class="dig">0.1</span>)
+    <span class="skw">click</span>(systemLocation)
+
+    <span class="cmt"># 關閉AI</span>
+    <span class="kw">if</span> exists(<img src="1526654646564-1.png" />):
+        <span class="skw">click</span>(<img src="1526654646564-1.png" />)
+
+    <span class="skw">wait</span>(<span class="dig">0.1</span>)
+
+    <span class="cmt"># 先取消一次</span>
+    <span class="skw">click</span>(<img src="1526909105618.png" />)
+    <span class="skw">click</span>(<img src="1526909121037.png" />)
+
+    <span class="skw">wait</span>(<span class="dig">0.1</span>)
+    <span class="cmt">#選擇當天pk選項</span>
+    <span class="skw">click</span>(systemLocation)
+    <span class="skw">click</span>(<img src="1526834404011.png" />)
+    pk_pos = <img src="pk_pos.png" />
+    <span class="skw">click</span>(pk_pos)
+
+    <span class="skw">click</span>(systemLocation)
+
+    <span class="cmt"># 開啟AI</span>
+    <span class="cmt"># 假如太快進入戰鬥，畫面會完全不同，此時會有問題</span>
+    <span class="kw">try</span>:
+        <span class="skw">click</span>(<img src="1526831872731.png" />)
+        <span class="skw">click</span>(<img src="1526659575850.png" />)
+    <span class="kw">except</span>:
+        <span class="skw">wait</span>(<span class="dig">1</span>)
+
+<span class="cmt"># 首次執行</span>
+switchWindow(pointer)
+</pre>
+</body>
+</html>

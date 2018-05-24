@@ -1,0 +1,139 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }
+
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>stoneAge_R33_test.sikuli</h2> <a href="stoneAge_R33_test.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># 33隨機pk - test</span>
+<span class="cmt"># 單人測試版</span>
+
+<span class="cmt"># 引用package</span>
+<span class="kw">import</span> threading
+<span class="kw">import</span> time<span class="cmt"># 引用package</span>
+
+systemLocation = Location(<span class="dig">748</span>, <span class="dig">614</span>)
+
+
+<span class="cmt"># 視窗切換與設定 by location</span>
+<span class="kw">def</span> switchWindow():
+    <span class="skw">click</span>(<img src="1526652852632.png" />)
+    <span class="cmt">#mouseMove(Location(562, 747))</span>
+    <span class="skw">wait</span>(<span class="dig">2</span>)
+    <span class="skw">click</span>(Location(<span class="dig">228</span>, <span class="dig">665</span>))
+    <span class="kw">if</span> exists(<img src="1526572518625.png" />):
+        battleSetting()
+
+
+    <span class="cmt">#重複構造定時器</span>
+    timer = threading.Timer(<span class="dig">5</span>,switchWindow) <span class="cmt">#每n秒重複執行</span>
+    timer.start()
+
+
+<span class="kw">def</span> battleSetting():
+    <span class="cmt"># 更換寵物狀態</span>
+    <span class="skw">click</span>(Location(<span class="dig">290</span>, <span class="dig">617</span>))
+    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526573167502.png" />):
+        <span class="skw">click</span>(Location(<span class="dig">42</span>, <span class="dig">70</span>))
+
+    <span class="skw">wait</span>(<span class="dig">3</span>)
+
+    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526573101833.png" />):
+        <span class="skw">click</span>(Location(<span class="dig">41</span>, <span class="dig">122</span>))
+
+    <span class="cmt"># 開始PK</span>
+    <span class="skw">click</span>(systemLocation)
+
+    <span class="cmt"># 關閉AI</span>
+    <span class="kw">if</span> exists(<img src="1526654646564.png" />):
+        <span class="skw">click</span>(<img src="1526654646564.png" />)
+
+    <span class="skw">click</span>(<img src="1526572108497.png" />)
+    <span class="skw">wait</span>(<span class="dig">5</span>)
+
+    <span class="cmt">#選擇當天pk選項</span>
+    pk_pos = Location(<span class="dig">396</span>, <span class="dig">386</span>)
+    <span class="skw">click</span>(pk_pos)
+
+    <span class="cmt"># 改為自動戰鬥</span>
+    <span class="skw">click</span>(systemLocation)
+    <span class="skw">click</span>(<img src="1526572187273.png" />)
+
+    <span class="cmt"># 關閉systemLocation</span>
+    <span class="skw">click</span>(<img src="1526659575850.png" />)
+
+<span class="kw">global</span> timer
+<span class="cmt"># 首次執行</span>
+timer = threading.Timer(<span class="dig">2</span>,switchWindow)
+timer.start()
+
+<span class="cmt"># 關掉定時器</span>
+timer.cancel(<span class="dig">300</span>) <span class="cmt">#60s測試</span>
+</pre>
+</body>
+</html>
