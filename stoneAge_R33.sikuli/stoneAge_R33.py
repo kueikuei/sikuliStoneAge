@@ -127,4 +127,3 @@ def battleSetting():
 
 # 首次執行
 switchWindow(pointer)
-

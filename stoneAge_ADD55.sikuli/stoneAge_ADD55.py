@@ -1,232 +1,194 @@
-# 55隨機pk
+# 33隨機pk、55隨機pk
 
 # ----------------前提設定----------------- # 
 # 開啟五隻人物、並且都在醫院
-# 戰寵第一位、騎寵第二位
-# 先把人物位置都定好
-## 隊員方向面對隊長
-# 隊長人物在最後視窗
+# 戰鬥設定 - 戰寵騎寵設定好
+# 掉線重連 - 離線掛網設定好
+#         - 要設定好隊長隊員
+# 隊員方向面對隊長
+# 隊長人物在最前面視窗
+# 再醫院左下角落
 # ----------------前提設定----------------- # 
-
-
-# 引用package
-#import threading
-#import time# 引用package
 
 systemLocation = Location(748, 614)
 
-#pointer = 0
-# 視窗切換與設定 by location
+
 def switchWindow():
     
-
-    #click("1526652852632.png")
-    # 隊長位置
-    #wait(0.1)
-    #click(Location(842, 662))
-    
-    #type(Key.RIGHT)
-    #keyDown(Key.ENTER)
-    #keyUp()
-
-    
-
-    # 戰鬥結束後隊長取消團隊  
-    #click("1526660308320.png")  
-
-    # 開啟組隊
-    #click("1526718752895.png")
-    #if exists("1526718966234.png"):
-    #    click(Location(145, 76))
-    #click("1526718796932.png")
-
     # 隊員1開始加入
-    click("1526652852632.png")
-    #click(Location(228, 665))
+    click("1526652852632-2.png")
     wait(0.1)
     type(Key.RIGHT)
     type(Key.RIGHT)
     keyDown(Key.ENTER)
     keyUp()   
-    # 檢測是否還在pk
-    while not exists("1526660308320.png"):
-        #wait(1)
-        type(Key.ESC)
-        click("1526994564988.png")
-        wait(0.1)
-        click("1526994587978.png")
-        wait(5)
-    #click("1526660308320.png")
-    
-    MemberbattleSetting()
 
+    
+    # 檢測是否還在戰鬥
+    # 如果還在戰鬥直接登出省時間
+    if not exists("1526572518625-5.png"):
+
+        mouseMove(Location(748, 613))
+        click(Location(748, 613))
+        click("1526994564988-4.png")
+        wait(0.1)
+        click("1526994587978-4.png")
+        #wait(2)
+        
+    while not exists("1526572518625-2.png"):    #避免燈不近來   
+        click("1526994587978-4.png")
+    wait(0.3)
+    click("1527171784489.png")
+    
+    #wait(1)
+    wait(0.3)
      # 隊員2開始加入
-    click("1526652852632.png")
+    click("1526652852632-2.png")
     wait(0.1)
-    #click(Location(345, 664))
     type(Key.RIGHT)
     type(Key.RIGHT)
     type(Key.RIGHT)
     keyDown(Key.ENTER)
     keyUp()  
-    while not exists("1526660308320.png"):
-        #wait(1)
-        type(Key.ESC)
-        click("1526994564988.png")
+
+    
+    # 檢測是否還在pk
+    if not exists("1526572518625-5.png"):
+        
+        mouseMove(Location(748, 613))
+        click(Location(748, 613))
+        click("1526994564988-4.png")
         wait(0.1)
-        click("1526994587978.png")
-        wait(5)
-    #click("1526660308320.png")
+        click("1526994587978-4.png")
 
-    MemberbattleSetting()
-
+    while not exists("1526572518625-2.png"):    #避免燈不近來   
+        click("1526994587978-4.png")
+        
+    click("1527171784489.png")
+    
     # 隊員3開始加入
-    #click("1526652852632.png")
-    #wait(0.1)
-    #click(Location(517, 663))
-    #wait(0.1)
-    #while not exists("1526660308320.png"):
-    #    wait(1)
-   # click("1526660308320.png")
+    click("1526652852632-2.png")
+    wait(0.1)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    keyDown(Key.ENTER)
+    keyUp()  
 
-    #MemberbattleSetting()
+    
+    # 檢測是否還在pk
+    if not exists("1526572518625-5.png"):
+        
+        mouseMove(Location(748, 613))
+        click(Location(748, 613))
+        click("1526994564988-4.png")
+        wait(0.1)
+        click("1526994587978-4.png")
+
+    while not exists("1526572518625-2.png"):    #避免燈不近來   
+        click("1526994587978-4.png")
+        
+    click("1527171784489.png")   
 
     # 隊員4開始加入
-    #click("1526652852632.png")
-    #wait(0.1)
-    #click(Location(677, 664))
-    #wait(0.1)
-    #while not exists("1526660308320.png"):
-    #    wait(1)
-    #click("1526660308320.png")
-
-    #MemberbattleSetting()
-
-    # 隊長動作
-    click("1526652852632-1.png")
+    click("1526652852632-2.png")
     wait(0.1)
-    #click(Location(842, 662))
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    keyDown(Key.ENTER)
+    keyUp()  
+
+    
+    # 檢測是否還在pk
+    if not exists("1526572518625-5.png"):
+        
+        mouseMove(Location(748, 613))
+        click(Location(748, 613))
+        click("1526994564988-4.png")
+        wait(0.1)
+        click("1526994587978-4.png")
+
+    while not exists("1526572518625-2.png"):    #避免燈不近來   
+        click("1526994587978-4.png")
+        
+    click("1527171784489.png")
+
+    #wait(1)
+    # 隊長動作
+    click("1526652852632-3.png")
+    wait(0.1)
     type(Key.RIGHT)
     keyDown(Key.ENTER)
     keyUp()
-    if exists("1526572518625-1.png"):
-        LeaderbattleSetting()
-
-    #透過非定時寫法
-    # 假如進入戰鬥
-    #while exists("1526572518625-1.png"):
-    #   wait(1)
-
-    #戰鬥結束後重新啟動
-    while not exists("1526572518625-1.png"):
-        #wait(1)
-        type(Key.ESC)
-        click("1526994564988.png")
-        wait(0.1)
-        click("1526994587978.png")
-    
-        wait(5)
-    # 隊長等隊員
-    #click("1526718443462.png")
-    
-    switchWindow()
-    
-    #重複構造定時器
-    #timer = threading.Timer(120,switchWindow) #每n秒重複執行
-    #timer.start()
-
-def MemberbattleSetting(): 
-    # 更換寵物狀態
-    #click(Location(290, 617))
-
-    #click(Location(42, 70)) #防呆機制
-    #wait(0.1)
-    #while not exists("1526573167502.png"):
-        #click(Location(42, 70))
-
-    #wait(0.1)
-
-    #click(Location(41, 122)) #防呆機制
-    #wait(0.1)
-    #while not exists("1526573101833.png"):
- #       click(Location(41, 122))
-
-    click(systemLocation)
-    
-    # 關閉AI
-    if exists("1526660560282.png"):
-        click("1526660560282.png")
-        
-    wait(0.1)
-
-    # 關閉systemLocation
-    click("1526659575850.png")
+  
+    LeaderbattleSetting()
 
 def LeaderbattleSetting(): 
-    # 更換寵物狀態
-    
-    #click(Location(290, 617))
-    #click(Location(42,70)) #防呆機制
-    #wait(0.1)
-   # while not exists("1526573167502.png"):
-        #click(Location(42, 70))
 
-    #wait(0.1)
-
-    #click(Location(41,122)) #防呆機制
-    #wait(0.1)
-    #while not exists("1526573101833.png"):
- #       click(Location(41, 122))
-    
     # 開始PK
-    click(systemLocation)
-
-    # 關閉AI
-    if exists("1526654646564.png"):
-        click("1526654646564.png")
-        
-    click("1526572108497.png")
-    wait(0.1)
+    try:
+        click(systemLocation)
+    
+        # 關閉AI
+        if exists("1526654646564-1.png"):
+            click("1526654646564-1.png")
+            
+        click("1526572108497-1.png")
+        wait(0.1)
+    except:
+        wait(0.2)
 
     #選擇當天pk選項
-    pk_pos = "1526994127450.png"
+    pk_pos = "1527264739942.png"
     click(pk_pos)
 
-    #if exists("1526739916478.png"):
-    if exists("1526995805693.png"):
-        wait(1)
+    wait(0.1)
 
-    # 改為自動戰鬥
-   # click(systemLocation)
-    #try:
- #       click("1526831872731.png")
-       # click("1526659575850-1.png")
-    #except:
-     #   wait(1)
-    
+    if exists("1526995805693-1.png"):
+        switchWindow()
+
     # 一定要進入比賽才繼續往下走
     pointer = 0
-    while exists("1526572518625-1.png"):
+    while exists("1526572518625-3.png"):
         wait(1)
         pointer = pointer + 1
-        if(pointer>150):
-            type(Key.ESC)
-            click("1526572108497.png")
-            click("1526996440330.png")
+        if(pointer>30):
+            click(systemLocation)
+            click("1526572108497-1.png")
+            click("1526996440330-1.png")
             LeaderbattleSetting()
 
-    # pk結束後才往下走
-    while not exists("1526572518625-1.png"):
+    # pk進入後才往下走
+    while not exists("1526572518625-3.png"):
+        # 開啟AI
         click(systemLocation)
-        click("1526831872731.png")
-        click("1526659575850-1.png")
+        if exists("1526660560282-1.png"):
+            click("1526660560282-1.png")
+        click("1526659575850-2.png")
         wait(1)
 
-#global timer
-# 首次執行
-switchWindow()
-#timer = threading.Timer(2,switchWindow)
-#timer.start()
+        # 檢測是否還在pk
+        pointer = 0
+        while not exists("1526572518625-5.png"):
+            pointer = pointer + 1
+            if(pointer>30):
+                mouseMove(Location(748, 613))
+                click(Location(748, 613))
+                click("1526994564988-4.png")
+                wait(0.1)
+                click("1526994587978-4.png")
+                break
+        while not exists("1526572518625-2.png"):    #避免燈不近來           
+            click("1526994587978-4.png")
+            
+    # 飛掉的話等待切換到隊員一
+        break
+    switchWindow()
 
-# 關掉定時器
-#timer.cancel(300) #60s測試
+switchWindow()
+
+

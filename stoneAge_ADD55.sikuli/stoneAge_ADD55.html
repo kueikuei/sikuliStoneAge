@@ -70,239 +70,198 @@
 <h2>stoneAge_ADD55.sikuli</h2> <a href="stoneAge_ADD55.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
-<span class="cmt"># 55隨機pk</span>
+<span class="cmt"># 33隨機pk、55隨機pk</span>
 
 <span class="cmt"># ----------------前提設定----------------- # </span>
 <span class="cmt"># 開啟五隻人物、並且都在醫院</span>
-<span class="cmt"># 戰寵第一位、騎寵第二位</span>
-<span class="cmt"># 先把人物位置都定好</span>
-<span class="cmt">## 隊員方向面對隊長</span>
-<span class="cmt"># 隊長人物在最後視窗</span>
+<span class="cmt"># 戰鬥設定 - 戰寵騎寵設定好</span>
+<span class="cmt"># 掉線重連 - 離線掛網設定好</span>
+<span class="cmt">#         - 要設定好隊長隊員</span>
+<span class="cmt"># 隊員方向面對隊長</span>
+<span class="cmt"># 隊長人物在最前面視窗</span>
+<span class="cmt"># 再醫院左下角落</span>
 <span class="cmt"># ----------------前提設定----------------- # </span>
-
-
-<span class="cmt"># 引用package</span>
-<span class="cmt">#import threading</span>
-<span class="cmt">#import time# 引用package</span>
 
 systemLocation = Location(<span class="dig">748</span>, <span class="dig">614</span>)
 
-<span class="cmt">#pointer = 0</span>
-<span class="cmt"># 視窗切換與設定 by location</span>
+
 <span class="kw">def</span> switchWindow():
 
-
-    <span class="cmt">#click("1526652852632.png")</span>
-    <span class="cmt"># 隊長位置</span>
-    <span class="cmt">#wait(0.1)</span>
-    <span class="cmt">#click(Location(842, 662))</span>
-
-    <span class="cmt">#type(Key.RIGHT)</span>
-    <span class="cmt">#keyDown(Key.ENTER)</span>
-    <span class="cmt">#keyUp()</span>
-
-
-
-    <span class="cmt"># 戰鬥結束後隊長取消團隊  </span>
-    <span class="cmt">#click("1526660308320.png")  </span>
-
-    <span class="cmt"># 開啟組隊</span>
-    <span class="cmt">#click("1526718752895.png")</span>
-    <span class="cmt">#if exists("1526718966234.png"):</span>
-    <span class="cmt">#    click(Location(145, 76))</span>
-    <span class="cmt">#click("1526718796932.png")</span>
-
     <span class="cmt"># 隊員1開始加入</span>
-    <span class="skw">click</span>(<img src="1526652852632.png" />)
-    <span class="cmt">#click(Location(228, 665))</span>
+    <span class="skw">click</span>(<img src="1526652852632-2.png" />)
     <span class="skw">wait</span>(<span class="dig">0.1</span>)
     <span class="skw">type</span>(Key.RIGHT)
     <span class="skw">type</span>(Key.RIGHT)
     keyDown(Key.ENTER)
     keyUp()
-    <span class="cmt"># 檢測是否還在pk</span>
-    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526660308320.png" />):
-        <span class="cmt">#wait(1)</span>
-        <span class="skw">type</span>(Key.ESC)
-        <span class="skw">click</span>(<img src="1526994564988.png" />)
+
+
+    <span class="cmt"># 檢測是否還在戰鬥</span>
+    <span class="cmt"># 如果還在戰鬥直接登出省時間</span>
+    <span class="kw">if</span> <span class="kw">not</span> exists(<img src="1526572518625-5.png" />):
+
+        mouseMove(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(<img src="1526994564988-4.png" />)
         <span class="skw">wait</span>(<span class="dig">0.1</span>)
-        <span class="skw">click</span>(<img src="1526994587978.png" />)
-        <span class="skw">wait</span>(<span class="dig">5</span>)
-    <span class="cmt">#click("1526660308320.png")</span>
+        <span class="skw">click</span>(<img src="1526994587978-4.png" />)
+        <span class="cmt">#wait(2)</span>
 
-    MemberbattleSetting()
+    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-2.png" />):    <span class="cmt">#避免燈不近來   </span>
+        <span class="skw">click</span>(<img src="1526994587978-4.png" />)
+    <span class="skw">wait</span>(<span class="dig">0.3</span>)
+    <span class="skw">click</span>(<img src="1527171784489.png" />)
 
+    <span class="cmt">#wait(1)</span>
+    <span class="skw">wait</span>(<span class="dig">0.3</span>)
      <span class="cmt"># 隊員2開始加入</span>
-    <span class="skw">click</span>(<img src="1526652852632.png" />)
+    <span class="skw">click</span>(<img src="1526652852632-2.png" />)
     <span class="skw">wait</span>(<span class="dig">0.1</span>)
-    <span class="cmt">#click(Location(345, 664))</span>
     <span class="skw">type</span>(Key.RIGHT)
     <span class="skw">type</span>(Key.RIGHT)
     <span class="skw">type</span>(Key.RIGHT)
     keyDown(Key.ENTER)
     keyUp()
-    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526660308320.png" />):
-        <span class="cmt">#wait(1)</span>
-        <span class="skw">type</span>(Key.ESC)
-        <span class="skw">click</span>(<img src="1526994564988.png" />)
-        <span class="skw">wait</span>(<span class="dig">0.1</span>)
-        <span class="skw">click</span>(<img src="1526994587978.png" />)
-        <span class="skw">wait</span>(<span class="dig">5</span>)
-    <span class="cmt">#click("1526660308320.png")</span>
 
-    MemberbattleSetting()
+
+    <span class="cmt"># 檢測是否還在pk</span>
+    <span class="kw">if</span> <span class="kw">not</span> exists(<img src="1526572518625-5.png" />):
+
+        mouseMove(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(<img src="1526994564988-4.png" />)
+        <span class="skw">wait</span>(<span class="dig">0.1</span>)
+        <span class="skw">click</span>(<img src="1526994587978-4.png" />)
+
+    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-2.png" />):    <span class="cmt">#避免燈不近來   </span>
+        <span class="skw">click</span>(<img src="1526994587978-4.png" />)
+
+    <span class="skw">click</span>(<img src="1527171784489.png" />)
 
     <span class="cmt"># 隊員3開始加入</span>
-    <span class="cmt">#click("1526652852632.png")</span>
-    <span class="cmt">#wait(0.1)</span>
-    <span class="cmt">#click(Location(517, 663))</span>
-    <span class="cmt">#wait(0.1)</span>
-    <span class="cmt">#while not exists("1526660308320.png"):</span>
-    <span class="cmt">#    wait(1)</span>
-   <span class="cmt"># click("1526660308320.png")</span>
-
-    <span class="cmt">#MemberbattleSetting()</span>
-
-    <span class="cmt"># 隊員4開始加入</span>
-    <span class="cmt">#click("1526652852632.png")</span>
-    <span class="cmt">#wait(0.1)</span>
-    <span class="cmt">#click(Location(677, 664))</span>
-    <span class="cmt">#wait(0.1)</span>
-    <span class="cmt">#while not exists("1526660308320.png"):</span>
-    <span class="cmt">#    wait(1)</span>
-    <span class="cmt">#click("1526660308320.png")</span>
-
-    <span class="cmt">#MemberbattleSetting()</span>
-
-    <span class="cmt"># 隊長動作</span>
-    <span class="skw">click</span>(<img src="1526652852632-1.png" />)
+    <span class="skw">click</span>(<img src="1526652852632-2.png" />)
     <span class="skw">wait</span>(<span class="dig">0.1</span>)
-    <span class="cmt">#click(Location(842, 662))</span>
+    <span class="skw">type</span>(Key.RIGHT)
+    <span class="skw">type</span>(Key.RIGHT)
+    <span class="skw">type</span>(Key.RIGHT)
     <span class="skw">type</span>(Key.RIGHT)
     keyDown(Key.ENTER)
     keyUp()
-    <span class="kw">if</span> exists(<img src="1526572518625-1.png" />):
-        LeaderbattleSetting()
 
-    <span class="cmt">#透過非定時寫法</span>
-    <span class="cmt"># 假如進入戰鬥</span>
-    <span class="cmt">#while exists("1526572518625-1.png"):</span>
-    <span class="cmt">#   wait(1)</span>
 
-    <span class="cmt">#戰鬥結束後重新啟動</span>
-    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-1.png" />):
-        <span class="cmt">#wait(1)</span>
-        <span class="skw">type</span>(Key.ESC)
-        <span class="skw">click</span>(<img src="1526994564988.png" />)
+    <span class="cmt"># 檢測是否還在pk</span>
+    <span class="kw">if</span> <span class="kw">not</span> exists(<img src="1526572518625-5.png" />):
+
+        mouseMove(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(<img src="1526994564988-4.png" />)
         <span class="skw">wait</span>(<span class="dig">0.1</span>)
-        <span class="skw">click</span>(<img src="1526994587978.png" />)
+        <span class="skw">click</span>(<img src="1526994587978-4.png" />)
 
-        <span class="skw">wait</span>(<span class="dig">5</span>)
-    <span class="cmt"># 隊長等隊員</span>
-    <span class="cmt">#click("1526718443462.png")</span>
+    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-2.png" />):    <span class="cmt">#避免燈不近來   </span>
+        <span class="skw">click</span>(<img src="1526994587978-4.png" />)
 
-    switchWindow()
+    <span class="skw">click</span>(<img src="1527171784489.png" />)
 
-    <span class="cmt">#重複構造定時器</span>
-    <span class="cmt">#timer = threading.Timer(120,switchWindow) #每n秒重複執行</span>
-    <span class="cmt">#timer.start()</span>
-
-<span class="kw">def</span> MemberbattleSetting():
-    <span class="cmt"># 更換寵物狀態</span>
-    <span class="cmt">#click(Location(290, 617))</span>
-
-    <span class="cmt">#click(Location(42, 70)) #防呆機制</span>
-    <span class="cmt">#wait(0.1)</span>
-    <span class="cmt">#while not exists("1526573167502.png"):</span>
-        <span class="cmt">#click(Location(42, 70))</span>
-
-    <span class="cmt">#wait(0.1)</span>
-
-    <span class="cmt">#click(Location(41, 122)) #防呆機制</span>
-    <span class="cmt">#wait(0.1)</span>
-    <span class="cmt">#while not exists("1526573101833.png"):</span>
- <span class="cmt">#       click(Location(41, 122))</span>
-
-    <span class="skw">click</span>(systemLocation)
-
-    <span class="cmt"># 關閉AI</span>
-    <span class="kw">if</span> exists(<img src="1526660560282.png" />):
-        <span class="skw">click</span>(<img src="1526660560282.png" />)
-
+    <span class="cmt"># 隊員4開始加入</span>
+    <span class="skw">click</span>(<img src="1526652852632-2.png" />)
     <span class="skw">wait</span>(<span class="dig">0.1</span>)
+    <span class="skw">type</span>(Key.RIGHT)
+    <span class="skw">type</span>(Key.RIGHT)
+    <span class="skw">type</span>(Key.RIGHT)
+    <span class="skw">type</span>(Key.RIGHT)
+    <span class="skw">type</span>(Key.RIGHT)
+    keyDown(Key.ENTER)
+    keyUp()
 
-    <span class="cmt"># 關閉systemLocation</span>
-    <span class="skw">click</span>(<img src="1526659575850.png" />)
+
+    <span class="cmt"># 檢測是否還在pk</span>
+    <span class="kw">if</span> <span class="kw">not</span> exists(<img src="1526572518625-5.png" />):
+
+        mouseMove(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+        <span class="skw">click</span>(<img src="1526994564988-4.png" />)
+        <span class="skw">wait</span>(<span class="dig">0.1</span>)
+        <span class="skw">click</span>(<img src="1526994587978-4.png" />)
+
+    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-2.png" />):    <span class="cmt">#避免燈不近來   </span>
+        <span class="skw">click</span>(<img src="1526994587978-4.png" />)
+
+    <span class="skw">click</span>(<img src="1527171784489.png" />)
+
+    <span class="cmt">#wait(1)</span>
+    <span class="cmt"># 隊長動作</span>
+    <span class="skw">click</span>(<img src="1526652852632-3.png" />)
+    <span class="skw">wait</span>(<span class="dig">0.1</span>)
+    <span class="skw">type</span>(Key.RIGHT)
+    keyDown(Key.ENTER)
+    keyUp()
+
+    LeaderbattleSetting()
 
 <span class="kw">def</span> LeaderbattleSetting():
-    <span class="cmt"># 更換寵物狀態</span>
-
-    <span class="cmt">#click(Location(290, 617))</span>
-    <span class="cmt">#click(Location(42,70)) #防呆機制</span>
-    <span class="cmt">#wait(0.1)</span>
-   <span class="cmt"># while not exists("1526573167502.png"):</span>
-        <span class="cmt">#click(Location(42, 70))</span>
-
-    <span class="cmt">#wait(0.1)</span>
-
-    <span class="cmt">#click(Location(41,122)) #防呆機制</span>
-    <span class="cmt">#wait(0.1)</span>
-    <span class="cmt">#while not exists("1526573101833.png"):</span>
- <span class="cmt">#       click(Location(41, 122))</span>
 
     <span class="cmt"># 開始PK</span>
-    <span class="skw">click</span>(systemLocation)
+    <span class="kw">try</span>:
+        <span class="skw">click</span>(systemLocation)
 
-    <span class="cmt"># 關閉AI</span>
-    <span class="kw">if</span> exists(<img src="1526654646564.png" />):
-        <span class="skw">click</span>(<img src="1526654646564.png" />)
+        <span class="cmt"># 關閉AI</span>
+        <span class="kw">if</span> exists(<img src="1526654646564-1.png" />):
+            <span class="skw">click</span>(<img src="1526654646564-1.png" />)
 
-    <span class="skw">click</span>(<img src="1526572108497.png" />)
-    <span class="skw">wait</span>(<span class="dig">0.1</span>)
+        <span class="skw">click</span>(<img src="1526572108497-1.png" />)
+        <span class="skw">wait</span>(<span class="dig">0.1</span>)
+    <span class="kw">except</span>:
+        <span class="skw">wait</span>(<span class="dig">0.2</span>)
 
     <span class="cmt">#選擇當天pk選項</span>
-    pk_pos = <img src="1526994127450.png" />
+    pk_pos = <img src="1527264739942.png" />
     <span class="skw">click</span>(pk_pos)
 
-    <span class="cmt">#if exists("1526739916478.png"):</span>
-    <span class="kw">if</span> exists(<img src="1526995805693.png" />):
-        <span class="skw">wait</span>(<span class="dig">1</span>)
+    <span class="skw">wait</span>(<span class="dig">0.1</span>)
 
-    <span class="cmt"># 改為自動戰鬥</span>
-   <span class="cmt"># click(systemLocation)</span>
-    <span class="cmt">#try:</span>
- <span class="cmt">#       click("1526831872731.png")</span>
-       <span class="cmt"># click("1526659575850-1.png")</span>
-    <span class="cmt">#except:</span>
-     <span class="cmt">#   wait(1)</span>
+    <span class="kw">if</span> exists(<img src="1526995805693-1.png" />):
+        switchWindow()
 
     <span class="cmt"># 一定要進入比賽才繼續往下走</span>
     pointer = <span class="dig">0</span>
-    <span class="kw">while</span> exists(<img src="1526572518625-1.png" />):
+    <span class="kw">while</span> exists(<img src="1526572518625-3.png" />):
         <span class="skw">wait</span>(<span class="dig">1</span>)
         pointer = pointer + <span class="dig">1</span>
-        <span class="kw">if</span>(pointer&gt;<span class="dig">150</span>):
-            <span class="skw">type</span>(Key.ESC)
-            <span class="skw">click</span>(<img src="1526572108497.png" />)
-            <span class="skw">click</span>(<img src="1526996440330.png" />)
+        <span class="kw">if</span>(pointer&gt;<span class="dig">30</span>):
+            <span class="skw">click</span>(systemLocation)
+            <span class="skw">click</span>(<img src="1526572108497-1.png" />)
+            <span class="skw">click</span>(<img src="1526996440330-1.png" />)
             LeaderbattleSetting()
 
-    <span class="cmt"># pk結束後才往下走</span>
-    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-1.png" />):
+    <span class="cmt"># pk進入後才往下走</span>
+    <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-3.png" />):
+        <span class="cmt"># 開啟AI</span>
         <span class="skw">click</span>(systemLocation)
-        <span class="skw">click</span>(<img src="1526831872731.png" />)
-        <span class="skw">click</span>(<img src="1526659575850-1.png" />)
+        <span class="kw">if</span> exists(<img src="1526660560282-1.png" />):
+            <span class="skw">click</span>(<img src="1526660560282-1.png" />)
+        <span class="skw">click</span>(<img src="1526659575850-2.png" />)
         <span class="skw">wait</span>(<span class="dig">1</span>)
 
-<span class="cmt">#global timer</span>
-<span class="cmt"># 首次執行</span>
+        <span class="cmt"># 檢測是否還在pk</span>
+        pointer = <span class="dig">0</span>
+        <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-5.png" />):
+            pointer = pointer + <span class="dig">1</span>
+            <span class="kw">if</span>(pointer&gt;<span class="dig">30</span>):
+                mouseMove(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+                <span class="skw">click</span>(Location(<span class="dig">748</span>, <span class="dig">613</span>))
+                <span class="skw">click</span>(<img src="1526994564988-4.png" />)
+                <span class="skw">wait</span>(<span class="dig">0.1</span>)
+                <span class="skw">click</span>(<img src="1526994587978-4.png" />)
+                <span class="kw">break</span>
+        <span class="kw">while</span> <span class="kw">not</span> exists(<img src="1526572518625-2.png" />):    <span class="cmt">#避免燈不近來           </span>
+            <span class="skw">click</span>(<img src="1526994587978-4.png" />)
+
+    <span class="cmt"># 飛掉的話等待切換到隊員一</span>
+        <span class="kw">break</span>
+    switchWindow()
+
 switchWindow()
-<span class="cmt">#timer = threading.Timer(2,switchWindow)</span>
-<span class="cmt">#timer.start()</span>
-
-<span class="cmt"># 關掉定時器</span>
-<span class="cmt">#timer.cancel(300) #60s測試</span>
-
 </pre>
 </body>
 </html>
