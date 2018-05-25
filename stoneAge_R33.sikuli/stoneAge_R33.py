@@ -48,27 +48,36 @@ def switchWindow(pointer):
         type(Key.RIGHT)
         keyDown(Key.ENTER)
         keyUp() 
+
+        # 避免不斷等待時間
+             
+    if not exists("1526572518625-1.png"): 
+        click(systemLocation)
+        if exists("1526832621719.png"):
+            click("1526832621719.png")
+        click("1527255945568.png")
             
     # 檢測是否還在戰鬥
-    # 如果還在戰鬥直接登出省時間
-    if not exists("1526572518625-1.png"):
-
-        #click(systemLocation)
-        # 避免不斷等待時間
-        #if exists("1526832621719.png"):
-          #  click("1526832621719.png")
-
-        mouseMove(Location(748, 613))
-        click(Location(748, 613))
-        click("1526994564988.png")
-        wait(0.1)
-        click("1526994587978.png")
-        #wait(2) #5秒保險  
-
-    while not exists("1526572518625-1.png"):    #避免無法登入   
-        click("1526994587978.png")
+        # 如果還在戰鬥直接登出省時間
+    timer = 0
+    while not exists("1526572518625-2.png"):
+        wait(1)
+        timer = timer +1
+        if(timer>4):           
+            click(systemLocation)
+            wait(1)
+            click("1526994564988-1.png")
+            wait(0.1)
+            click("1526994587978-1.png")
+            wait(2) #5秒保險  
+            break
+    
+    while not exists("1526572518625-2.png"):    #避免無法登入   
+        #click("1526994587978-1.png")
+        click(systemLocation)
+        wait(1)
+        click(systemLocation)
     wait(0.3)
-    click("1527171784489.png")
 
     # 代表戰鬥結束        
     if exists("1526572518625-1.png"):
@@ -97,6 +106,7 @@ def battleSetting():
     click(systemLocation)
     click("1526834404011.png")
     pk_pos = "pk_pos.png"
+    #pk_pos = "pk_pos.png"
     click(pk_pos)
 
     click(systemLocation)
@@ -108,7 +118,12 @@ def battleSetting():
         click("1526831872731.png")
         click("1526659575850.png")
     except:
-        wait(1)
+        wait(3)
+        
+        # 嘗試
+        #click("1526831872731.png")
+        #click("1526659575850.png")
+        # 嘗試
 
 # 首次執行
 switchWindow(pointer)
