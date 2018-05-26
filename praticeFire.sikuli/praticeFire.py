@@ -1,3 +1,8 @@
+# ----------------前提設定----------------- # 
+# 戰鬥設定 - 第一回合毀天
+# 聊天限制五行
+# ----------------前提設定----------------- # 
+
 import threading
 import time# 引用package
 import random
@@ -15,11 +20,8 @@ def dosthing():
     wait(1)
     # random移動假裝
     #rightClick(Location(random.randint(-200,200), random.randint(-200,200)))
+    click("1527327582643.png")
 
-    #wait(random.randint(1,10))
-    # 移動回來
-    click("1526815122780.png")
-    #click(Location(369, 348))
     wait(6)
 
     # player2
@@ -31,13 +33,11 @@ def dosthing():
     wait(1)
     # random移動假裝
     #rightClick(Location(random.randint(-200,200), random.randint(-200,200)))
+    click("1527327582643.png")
 
-    #wait(random.randint(1,5))
-    # 移動回來
-    click("1526815122780.png")
-    #click(Location(369, 348))
     wait(5)
-    timer = threading.Timer(5,dosthing()) #每n秒重複執行
+    #timer = threading.Timer(5,dosthing()) #每n秒重複執行
+    timer = threading.Timer(random.randint(1,5),dosthing()) #每n秒重複執行
     timer.start()
 
 global timer

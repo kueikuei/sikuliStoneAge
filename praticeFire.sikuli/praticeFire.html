@@ -70,6 +70,11 @@
 <h2>praticeFire.sikuli</h2> <a href="praticeFire.zip">(Download this script)</a>
 </div>
 <pre class="sikuli-code">
+<span class="cmt"># ----------------前提設定----------------- # </span>
+<span class="cmt"># 戰鬥設定 - 第一回合毀天</span>
+<span class="cmt"># 聊天限制五行</span>
+<span class="cmt"># ----------------前提設定----------------- # </span>
+
 <span class="kw">import</span> threading
 <span class="kw">import</span> time<span class="cmt"># 引用package</span>
 <span class="kw">import</span> random
@@ -87,11 +92,8 @@
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="cmt"># random移動假裝</span>
     <span class="cmt">#rightClick(Location(random.randint(-200,200), random.randint(-200,200)))</span>
+    <span class="skw">click</span>(<img src="1527327582643.png" />)
 
-    <span class="cmt">#wait(random.randint(1,10))</span>
-    <span class="cmt"># 移動回來</span>
-    <span class="skw">click</span>(<img src="1526815122780.png" />)
-    <span class="cmt">#click(Location(369, 348))</span>
     <span class="skw">wait</span>(<span class="dig">6</span>)
 
     <span class="cmt"># player2</span>
@@ -103,13 +105,11 @@
     <span class="skw">wait</span>(<span class="dig">1</span>)
     <span class="cmt"># random移動假裝</span>
     <span class="cmt">#rightClick(Location(random.randint(-200,200), random.randint(-200,200)))</span>
+    <span class="skw">click</span>(<img src="1527327582643.png" />)
 
-    <span class="cmt">#wait(random.randint(1,5))</span>
-    <span class="cmt"># 移動回來</span>
-    <span class="skw">click</span>(<img src="1526815122780.png" />)
-    <span class="cmt">#click(Location(369, 348))</span>
     <span class="skw">wait</span>(<span class="dig">5</span>)
-    timer = threading.Timer(<span class="dig">5</span>,dosthing()) <span class="cmt">#每n秒重複執行</span>
+    <span class="cmt">#timer = threading.Timer(5,dosthing()) #每n秒重複執行</span>
+    timer = threading.Timer(random.randint(<span class="dig">1</span>,<span class="dig">5</span>),dosthing()) <span class="cmt">#每n秒重複執行</span>
     timer.start()
 
 <span class="kw">global</span> timer

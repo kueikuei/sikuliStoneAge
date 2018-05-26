@@ -15,7 +15,7 @@ def switchWindow(pointer):
     if(pointer>4):
         pointer = 0
 
-    click("1526652852632-1.png")
+    click("1527350845494.png")
     wait(0.1)
 
     if(pointer==0):
@@ -51,11 +51,11 @@ def switchWindow(pointer):
 
         # 避免不斷等待時間
              
-    if not exists("1526572518625-1.png"): 
+    if not exists("1526572518625-2.png"): 
         click(systemLocation)
-        if exists("1526832621719.png"):
-            click("1526832621719.png")
-        click("1527255945568.png")
+        if exists("1527351729160.png"):
+            click("1527351729160.png")
+        click("1527351780050.png")
             
     # 檢測是否還在戰鬥
         # 如果還在戰鬥直接登出省時間
@@ -66,9 +66,9 @@ def switchWindow(pointer):
         if(timer>4):           
             click(systemLocation)
             wait(1)
-            click("1526994564988-1.png")
+            click("1527351812129.png")
             wait(0.1)
-            click("1526994587978-1.png")
+            click("1527351919409.png")
             wait(2) #5秒保險  
             break
     
@@ -80,14 +80,14 @@ def switchWindow(pointer):
     wait(0.3)
 
     # 代表戰鬥結束        
-    if exists("1526572518625-1.png"):
+    if exists("1526572518625-2.png"):
         battleSetting()
         pointer = pointer + 1
         switchWindow(pointer)
 
 def battleSetting(): 
     # 脫離團隊
-    click("1526832676608.png")
+    click("1527351289882.png")
     wait(0.1) 
     click(systemLocation)
     
@@ -98,14 +98,14 @@ def battleSetting():
     wait(0.1)
 
     # 先取消一次
-    click("1526909105618.png")
-    click("1526909121037.png")
+    click("1527351981489.png")
+    click("1527351991759.png")
 
     wait(0.1)
     #選擇當天pk選項
     click(systemLocation)
-    click("1526834404011.png")
-    pk_pos = "pk_pos.png"
+    click("1527351981489.png")
+    pk_pos = "1527352028019.png"
     #pk_pos = "pk_pos.png"
     click(pk_pos)
 
@@ -115,14 +115,14 @@ def battleSetting():
     # 假如太快進入戰鬥，畫面會完全不同，此時會有問題
     # try...except跳過
     try:
-        click("1526831872731.png")
-        click("1526659575850.png")
+        click("1527352049643.png")
+        click("1527351780050.png")
     except:
         wait(3)
         
         # 嘗試
-        #click("1526831872731.png")
-        #click("1526659575850.png")
+        #click("1527352049643.png")
+        #click("1527351780050.png")
         # 嘗試
 
 # 首次執行
