@@ -26,19 +26,7 @@ def switchWindow():
     
     # 檢測是否還在戰鬥
     # 如果還在戰鬥直接登出省時間
-    if not exists("1526572518625-5.png"):
-
-        mouseMove(Location(748, 613))
-        click(Location(748, 613))
-        click("1526994564988-4.png")
-        wait(0.1)
-        click("1526994587978-4.png")
-        #wait(2)
-        
-    while not exists("1526572518625-2.png"):    #避免燈不近來   
-        click("1526994587978-4.png")
-    wait(0.3)
-    click("1527171784489.png")
+    ckeckPKorNot()
     
     #wait(1)
     wait(0.3)
@@ -53,18 +41,7 @@ def switchWindow():
 
     
     # 檢測是否還在pk
-    if not exists("1526572518625-5.png"):
-        
-        mouseMove(Location(748, 613))
-        click(Location(748, 613))
-        click("1526994564988-4.png")
-        wait(0.1)
-        click("1526994587978-4.png")
-
-    while not exists("1526572518625-2.png"):    #避免燈不近來   
-        click("1526994587978-4.png")
-        
-    click("1527171784489.png")
+    ckeckPKorNot()
     
     # 隊員3開始加入
     click("1526652852632-2.png")
@@ -75,21 +52,9 @@ def switchWindow():
     type(Key.RIGHT)
     keyDown(Key.ENTER)
     keyUp()  
-
     
     # 檢測是否還在pk
-    if not exists("1526572518625-5.png"):
-        
-        mouseMove(Location(748, 613))
-        click(Location(748, 613))
-        click("1526994564988-4.png")
-        wait(0.1)
-        click("1526994587978-4.png")
-
-    while not exists("1526572518625-2.png"):    #避免燈不近來   
-        click("1526994587978-4.png")
-        
-    click("1527171784489.png")   
+    ckeckPKorNot()
 
     # 隊員4開始加入
     click("1526652852632-2.png")
@@ -102,20 +67,8 @@ def switchWindow():
     keyDown(Key.ENTER)
     keyUp()  
 
-    
     # 檢測是否還在pk
-    if not exists("1526572518625-5.png"):
-        
-        mouseMove(Location(748, 613))
-        click(Location(748, 613))
-        click("1526994564988-4.png")
-        wait(0.1)
-        click("1526994587978-4.png")
-
-    while not exists("1526572518625-2.png"):    #避免燈不近來   
-        click("1526994587978-4.png")
-        
-    click("1527171784489.png")
+    ckeckPKorNot()
 
     #wait(1)
     # 隊長動作
@@ -126,6 +79,24 @@ def switchWindow():
     keyUp()
   
     LeaderbattleSetting()
+
+def ckeckPKorNot():
+    # 檢測是否還在pk
+    try:
+        if not exists("1526572518625-5.png"):
+            
+            mouseMove(Location(748, 613))
+            click(Location(748, 613))
+            click("1526994564988-4.png")
+            wait(0.1)
+            click("1526994587978-4.png")
+    
+        while not exists("1526572518625-2.png"):    #避免燈不近來   
+            click("1526994587978-4.png")
+            
+        click("1527171784489.png")
+    except:
+        wait(1)
 
 def LeaderbattleSetting(): 
 
@@ -151,16 +122,19 @@ def LeaderbattleSetting():
     if exists("1526995805693-1.png"):
         switchWindow()
 
-    # 一定要進入比賽才繼續往下走
-    pointer = 0
-    while exists("1526572518625-3.png"):
+    try:
+        # 一定要進入比賽才繼續往下走
+        pointer = 0
+        while exists("1526572518625-3.png"):
+            wait(1)
+            pointer = pointer + 1
+            if(pointer>30):
+                click(systemLocation)
+                click("1526572108497-1.png")
+                click("1526996440330-1.png")
+                LeaderbattleSetting()
+    except:
         wait(1)
-        pointer = pointer + 1
-        if(pointer>30):
-            click(systemLocation)
-            click("1526572108497-1.png")
-            click("1526996440330-1.png")
-            LeaderbattleSetting()
 
     # pk進入後才往下走
     while not exists("1526572518625-3.png"):
