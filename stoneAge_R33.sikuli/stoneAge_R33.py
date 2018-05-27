@@ -63,15 +63,15 @@ def switchWindow(pointer):
     while not exists("1526572518625-2.png"):
         wait(1)
         timer = timer +1
-        if(timer>4):           
+        if(timer>8):           
             click(systemLocation)
             wait(1)
             click("1527351812129.png")
-            wait(0.1)
-            click("1527351919409.png")
+            wait(0.1)            
+            click("1527407866760.png")
             wait(2) #5秒保險  
             break
-    
+                
     while not exists("1526572518625-2.png"):    #避免無法登入   
         #click("1526994587978-1.png")
         click(systemLocation)

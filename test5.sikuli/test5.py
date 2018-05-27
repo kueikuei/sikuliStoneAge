@@ -1,0 +1,15 @@
+while not exists("1527391020330.png"):
+    click("1526652852632-2.png")
+    wait(0.1)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    type(Key.RIGHT)
+    keyDown(Key.ENTER)
+    keyUp()  
+
+    wait(1)
+    paste(unicode("/疊加", "utf8"))
+    wait(0.1)
+    keyDown(Key.ENTER)
