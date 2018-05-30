@@ -25,20 +25,21 @@ def switchWindow():
 
     
     # 檢測是否還在戰鬥
+    ckeckPKorNot()
     # 如果還在戰鬥直接登出省時間
-    if not exists("1526572518625-6.png"):
+    # if not exists("1526572518625-6.png"):
 
-        mouseMove(Location(748, 613))
-        click(Location(748, 613))
-        click("1526994564988-5.png")
-        wait(0.1)
-        click("1526994587978-5.png")
-        #wait(2)
+    #     mouseMove(Location(748, 613))
+    #     click(Location(748, 613))
+    #     click("1526994564988-5.png")
+    #     wait(0.1)
+    #     click("1526994587978-5.png")
+    #     #wait(2)
         
-    while not exists("1526572518625-4.png"):    #避免燈不近來   
-        click("1526994587978-5.png")
-    wait(0.3)
-    click("1527171784489-1.png")
+    # while not exists("1526572518625-4.png"):    #避免燈不近來   
+    #     click("1526994587978-5.png")
+    # wait(0.3)
+    # click("1527171784489-1.png")
     
     #wait(1)
     wait(0.3)
@@ -53,20 +54,22 @@ def switchWindow():
 
     
     # 檢測是否還在pk
-    if not exists("1526572518625-6.png"):
+    ckeckPKorNot()
+    # if not exists("1526572518625-6.png"):
         
-        mouseMove(Location(748, 613))
-        click(Location(748, 613))
-        click("1526994564988-5.png")
-        wait(0.1)
-        click("1526994587978-5.png")
+    #     mouseMove(Location(748, 613))
+    #     click(Location(748, 613))
+    #     click("1526994564988-5.png")
+    #     wait(0.1)
+    #     click("1526994587978-5.png")
 
-    while not exists("1526572518625-4.png"):    #避免燈不近來   
-        click("1526994587978-5.png")
+    # while not exists("1526572518625-4.png"):    #避免燈不近來   
+    #     click("1526994587978-5.png")
         
-    click("1527171784489-1.png")
+    # click("1527171784489-1.png")
 
     #wait(1)
+
     # 隊長動作
     click("1526652852632-3.png")
     wait(0.1)
@@ -137,6 +140,25 @@ def LeaderbattleSetting():
     # 飛掉的話等待切換到隊員一
         break
     switchWindow()
+
+def ckeckPKorNot():
+    # 檢測是否還在pk
+    try:
+        if not exists("1526572518625-6.png"):
+            
+            mouseMove(Location(748, 613))
+            click(Location(748, 613))
+            click("1526994564988-5.png")
+            wait(0.1)
+            click("1526994587978-5.png")
+    
+        while not exists("1526572518625-4.png"):    #避免燈不近來   
+            click("1526994587978-5.png")
+            
+        click("1527171784489-1.png")
+    except:
+        wait(1)
+
 
 switchWindow()
 
